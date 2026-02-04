@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
 import DIYData from './components/DIYData';
+import Symptomgalaxy from './components/Symptomgalaxy';
 
 const router = createBrowserRouter(
   [
@@ -25,8 +26,9 @@ const router = createBrowserRouter(
       </>
     ),
     children: [
-      { path: "/about", element: <About /> },
-      { path: "/diydata", element: <DIYData /> },
+      { path: "/symptomgalaxy", element: <Symptomgalaxy /> },
+      { path: "/diydata", element: <DIYData /> }
+      
     ]
   }
 ]);

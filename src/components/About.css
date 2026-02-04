@@ -1,0 +1,55 @@
+.about-wrapper {
+  height: 100vh;
+  background: #2b2b2b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.triangle {
+  position: relative;
+  width: 420px;
+  height: 360px;
+  background: #e6e6e6;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* LABELS */
+
+.about-item {
+  position: absolute;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.about-item:hover {
+  opacity: 0.6;
+}
+
+/* Positions */
+
+.top {
+  top: -48px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left {
+  bottom: 60px;
+  left: -130px;
+}
+
+.right {
+  bottom: 60px;
+  right: -130px;
+}
+
+.bottom {
+  bottom: -48px;
+  left: 50%;
+  transform: translateX(-50%);
+}
