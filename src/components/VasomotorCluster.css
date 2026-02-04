@@ -1,0 +1,28 @@
+.cluster-card {
+  background: #f7f7f6;
+  border-radius: 4rem;
+  padding: 32px;
+  width: 580px;
+  font-family: system-ui, sans-serif;
+}
+
+.cluster-card h2 {
+  margin-bottom: 14px;
+  font-size: 20px;
+}
+
+.cluster-svg {
+  background: #fff;
+  border-radius: 2rem;
+}
+
+.slider-row {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+}
+.slider-row input {
+  flex: 1;
+}

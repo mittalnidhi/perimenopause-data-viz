@@ -1,0 +1,49 @@
+.network-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.link {
+  stroke: #bdbdbd;
+  stroke-width: 1.5;
+}
+
+.node-center {
+  fill: #f7f3f3;
+}
+
+.node-factor {
+  fill: #f8f4f4;
+  cursor: pointer;
+  transition: fill 0.2s ease;
+}
+
+.node-factor:hover {
+  fill: #f8f5f5;
+}
+
+.label {
+  font-size: 12px;
+  text-anchor: middle;
+  pointer-events: none;
+  fill: #a41a1a;
+}
+
+.factor-details {
+  width: 220px;
+  background: rgb(70, 15, 165);
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0 6px 20px #df1e1e26;
+}
+
+.factor-details h4 {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.factor-details ul {
+  padding-left: 18px;
+  font-size: 13px;
+}
