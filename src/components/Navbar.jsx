@@ -6,6 +6,7 @@ import {Link,NavLink} from 'react-router-dom'
 import "./Navbar.css";
 
 //using NavLink tag instead of anchor tag because it doesn't reload the entire page like anchor tag
+
 const Navbar = () => {
   return (
     <div>

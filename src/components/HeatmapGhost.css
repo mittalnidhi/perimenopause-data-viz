@@ -2,40 +2,31 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.05;          /* because i don't want it to be fully visible from the start */
+
+  opacity: 0.03;
   transition: opacity 4s ease;
 }
 
-/* Appears slowly after delay */
-
 .heatmap-container.show {
-  opacity: 0.45;
+  opacity: 0.5;
 }
 
 .heat-cell {
   position: absolute;
-  background: rgba(255,255,255,0.7);
-  border-radius: 2px;
-  filter: blur(0.5px);
+  background: white;
+  filter: blur(0.4px);
 
-  animation: breathe 10s ease-in-out infinite;
+  animation: breathe 6s ease-in-out infinite;
 }
-
-/* Gentle breathing */
 
 @keyframes breathe {
   0% {
     transform: scale(1);
-    opacity: 0.4;
   }
-
   50% {
-    transform: scale(1.05);
-    opacity: 0.6;
+    transform: scale(1.30);
   }
-
   100% {
     transform: scale(1);
-    opacity: 0.4;
   }
 }

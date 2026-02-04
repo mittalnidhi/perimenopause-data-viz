@@ -5,6 +5,7 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
+  background: black;
 }
 
 /* Main landing wrapper */
@@ -13,11 +14,11 @@ body {
   width: 100vw;
 }
 
-/* Hero section */
+/* ================= HERO ================= */
 
 .hero {
   background: radial-gradient(circle at top, #111, #000);
-  color: white;
+  color: rgb(222, 215, 215);
   height: 100vh;
   width: 100vw;
 
@@ -33,43 +34,42 @@ body {
   scroll-snap-align: start;
 }
 
-/* Subtle vignette */
+/* Vignette */
 
 .hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle, transparent 35%, black 85%);
-  z-index: 1;
-}
-
-/* Heatmap background */
-
-.heatmap-container {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
   pointer-events: none;
 }
 
+/* ================= BACKGROUND ANIMATION ================= */
+
+.ghost-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ================= TEXT ================= */
+
 .hero h1 {
-  font-size: 6rem;
-  letter-spacing: 2px;
+  font-size: 8rem;
+  letter-spacing: 4px;
   margin: 0;
+  margin-top: 15%;
   z-index: 5;
   position: relative;
 }
 
 .hero p {
-  font-size: 2rem;
+  font-size: 3rem;
   opacity: 0.8;
   line-height: 1.6;
-  margin-top: 20px;
+  margin-top: 5px;
   z-index: 5;
   position: relative;
 }
 
-/* Scroll arrow */
+/* ================= SCROLL ARROW ================= */
 
 .scroll-arrow {
   width: 40px;
@@ -82,10 +82,10 @@ body {
   transform: translateX(-50%);
   cursor: pointer;
 
-  animation: bounce 2s infinite;
+  animation: bounce 2.5s infinite ease-in-out;
   z-index: 5;
 
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 .scroll-arrow svg {
@@ -101,11 +101,10 @@ body {
   }
 
   50% {
-    transform: translateX(-50%) translateY(8px);
+    transform: translateX(-50%) translateY(10px);
   }
 }
 
-/* Content section-about */
 
 .content {
   min-height: 100vh;

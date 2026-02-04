@@ -1,36 +1,49 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./HeatmapGhost.css";
 
 export default function HeatmapGhost() {
   const [cells, setCells] = useState([]);
-  const [visible, setVisible] = useState(false);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
-    // generate ONCE
-    const initial = [];
+    generate();
 
-    for (let i = 0; i < 40; i++) {
-      initial.push({
-        id: Math.random(),
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        opacity: Math.random() * 0.35 + 0.15,
-        size: Math.random() * 18 + 12
-      });
-    }
+    setTimeout(() => setShow(true), 5000);
 
-    setCells(initial);
-
-    // appear after 5 seconds
-    const timer = setTimeout(() => {
-      setVisible(true);
-    }, 5000);
-
-    return () => clearTimeout(timer);
+    const interval = setInterval(generate, 3500);
+    return () => clearInterval(interval);
   }, []);
 
+  const clusters = [
+    { x: 15, y: 20 },
+    { x: 80, y: 15 },
+    { x: 70, y: 60 },
+    { x: 20, y: 65 },
+    { x: 50, y: 85 }
+  ];
+
+  const generate = () => {
+    const newCells = [];
+
+    clusters.forEach(cluster => {
+      const count = Math.floor(Math.random() * 6) + 4;
+
+      for (let i = 0; i < count; i++) {
+        newCells.push({
+          id: Math.random(),
+          x: cluster.x + (Math.random() * 20 - 10),
+          y: cluster.y + (Math.random() * 20 - 10),
+          opacity: Math.random() * 0.6 + 0.15,
+          size: Math.random() * 14 + 10
+        });
+      }
+    });
+
+    setCells(newCells);
+  };
+
   return (
-    <div className={`heatmap-container ${visible ? "show" : ""}`}>
+    <div className={`heatmap-container ${show ? "show" : ""}`}>
       {cells.map(cell => (
         <div
           key={cell.id}
@@ -38,9 +51,9 @@ export default function HeatmapGhost() {
           style={{
             left: `${cell.x}%`,
             top: `${cell.y}%`,
-            opacity: cell.opacity,
             width: cell.size,
-            height: cell.size
+            height: cell.size,
+            opacity: cell.opacity
           }}
         />
       ))}

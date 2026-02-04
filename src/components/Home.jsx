@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 import "./Home.css";
-import About from './About';
+import About from "./About";
 import "./About.css";
-import HeatmapGhost from "./HeatmapGhost";
+import GhostChart from "./GhostChart";
 
 const Home = () => {
   const scrollDown = () => {
@@ -11,14 +11,14 @@ const Home = () => {
       .scrollIntoView({ behavior: "smooth" });
   };
 
- return (
+  return (
     <div className="landing">
 
       {/* HERO */}
       <section className="hero">
 
-        {/* BACKGROUND ANIMATION */}
-        <HeatmapGhost />
+        {/* BACKGROUND DATA ANIMATION */}
+        <GhostChart />
 
         <h1>The Invisible Data</h1>
 
@@ -35,13 +35,10 @@ const Home = () => {
         </div>
 
       </section>
-
-      {/* ABOUT */}
-      <section className="content" id="about">
         <About />
-      </section>
 
     </div>
   );
 };
-export default Home
+
+export default Home;
