@@ -22,46 +22,43 @@ export default function About() {
       <h2 className="about-title">Choose your path</h2>
 
       <div className={`triangle-wrapper ${visible ? "zoom" : ""}`}>
-        <svg
-          className="triangle"
-          viewBox="0 0 400 520"
-          preserveAspectRatio="xMidYMid meet"
-        >
 
-          {/* Symptom Galaxy */}
+        <svg viewBox="0 0 400 600" className="triangle">
+
+          {/* Left top */}
           <polygon
-            className="tri"
-            points="0,0 200,260 200,0"
+            className="tri symptom"
+            points="0,0 200,250 200,0"
             onClick={() => navigate("/symptomgalaxy")}
           />
 
-          {/* DIY Data */}
+          {/* Right top */}
           <polygon
-            className="tri"
-            points="200,0 400,0 200,260"
+            className="tri diy"
+            points="200,0 400,0 200,250"
             onClick={() => navigate("/diydata")}
           />
 
-          {/* Slice of Life */}
+          {/* Left bottom */}
           <polygon
-            className="tri"
-            points="0,0 200,520 200,260"
+            className="tri slice"
+            points="0,0 200,600 200,250"
             onClick={() => navigate("/sliceoflife")}
           />
 
-          {/* Approaches */}
+          {/* Right bottom */}
           <polygon
-            className="tri"
-            points="200,260 400,0 200,520"
+            className="tri approaches"
+            points="200,250 400,0 200,600"
             onClick={() => navigate("/approaches")}
           />
 
           {/* Labels */}
 
-          <text x="40" y="50" className="label">Symptom Galaxy</text>
-          <text x="270" y="50" className="label">DIY Data</text>
-          <text x="70" y="300" className="label">Slice of Life</text>
-          <text x="250" y="300" className="label">Approaches</text>
+          <text x="30" y="60" className="label">Symptom Galaxy</text>
+          <text x="260" y="60" className="label">DIY Data</text>
+          <text x="60" y="360" className="label">Slice of Life</text>
+          <text x="250" y="360" className="label">Approaches</text>
 
         </svg>
       </div>

@@ -1,0 +1,49 @@
+.stats-section {
+  height: 100vh;
+  width: 100vw;
+  background: black;
+  position: relative;
+}
+
+.stats-text {
+  position: absolute;
+  left: 8%;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 40vw;        /* for horizontal text space */
+  max-width: 690px;
+  color: white;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.2;
+
+  pointer-events: none;
+}
+
+.text-layer {
+  position: absolute;
+  color: white;
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.second {
+  opacity: 0;
+}
+
+.stats-box {
+  position: absolute;
+  right: 2%;
+  bottom: 2%;
+  width: 380px;
+  height: 380px;
+  background: #5a1414;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: bottom right;
+}
+
+.stats-box span {
+  color: white;
+  font-size: 4rem;
+}

@@ -1,45 +1,24 @@
-//write rafce and press enter 
-import React from 'react'
-import UserCard from './components/UserCard';
+import { useEffect } from "react";
+import Lenis from "@studio-freight/lenis";
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
 import "./index.css";
-import { createBrowserRouter, RouterProvider, Outlet, Navigate} from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import About from './components/About';
-import DIYData from './components/DIYData';
-import Symptomgalaxy from './components/Symptomgalaxy';
 
-const router = createBrowserRouter(
-  [
-    {
-    element: <Outlet />,   // NO navbar here
-    children: [
-      { path: "/", element: <Home /> }
-    ]
-  },
+export default function App() {
 
-  {
-    element: (
-      <>
-        <Navbar />
-        <Outlet />
-      </>
-    ),
-    children: [
-      { path: "/symptomgalaxy", element: <Symptomgalaxy /> },
-      { path: "/diydata", element: <DIYData /> }
-      
-    ]
-  }
-]);
+  useEffect(() => {
+    const lenis = new Lenis({
+      lerp: 0.08,
+      smoothWheel: true
+    });
 
-const App = () => {
-  return (
-      <div className = "parent">
-        <RouterProvider router = {router}/>
-        
-      </div>
-  )
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
+
+  return <RouterProvider router={router} />;
 }
-
-export default App

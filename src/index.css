@@ -1,21 +1,21 @@
 
-*{
-  margin:0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
+* {
   box-sizing: border-box;
-  font-family: 'helvetica neue';
 }
 
-html,body, #root{
-  height:100%;
+html, body {
+  margin: 0;
+  padding: 0;
+
   width: 100%;
-  margin:0;
-  display: flex;
-  overflow-y: auto;
-  align-items: top ;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  height: 100%;
+
+  background: #000;
+}
+
+#root {
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .parent{
@@ -23,8 +23,7 @@ html,body, #root{
   max-width: none;
   margin:0;
   padding:0;
-  padding: 1rem 2rem;
-   /*vertical horizontal, 1 rem= 16 px*/
+  padding: 1rem 2rem; /*vertical horizontal, 1 rem= 16 px*/
   display: flex;
   flex-wrap: wrap;
 
