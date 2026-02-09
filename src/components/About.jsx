@@ -1,67 +1,144 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./About.css";
+// About.jsx
+import React, { forwardRef, useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "./home.css";
 
-export default function About() {
-  const ref = useRef();
-  const [visible, setVisible] = useState(false);
-  const navigate = useNavigate();
+gsap.registerPlugin(ScrollTrigger);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => setVisible(entry.isIntersecting),
-      { threshold: 0.4 }
-    );
+const About = forwardRef(function About(
+  { onEnterAbout, onLeaveAbout },
+  ref
+) {
+  const aboutHeadlineRef = useRef(null);
+  const aboutSubRef = useRef(null);
+  const redBoxRef = useRef(null);
+  const redBoxNumberRef = useRef(null);
 
-    observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
+  useLayoutEffect(() => {
+    const sectionEl =
+      typeof ref === "function" ? null : ref?.current;
+
+    // If parent passed a ref, we use it. Otherwise fallback to local query
+    const triggerEl =
+      sectionEl || document.getElementById("about");
+
+    if (!triggerEl) return;
+
+    const ctx = gsap.context(() => {
+      const PIN_SCROLL = 1600;
+
+      const state = { p: 0 }; // 0..1
+      const minPct = 2;
+      const maxPct = 63;
+      const switchAt = 43;
+
+      const computeBoxSize = (p) => {
+        const min = Math.min(window.innerWidth, window.innerHeight) * 0.14;
+        const max = Math.min(window.innerWidth, window.innerHeight) * 0.42;
+        return min + (max - min) * p;
+      };
+
+      const updateUI = (p) => {
+        const val = Math.round(minPct + (maxPct - minPct) * p);
+
+        if (redBoxNumberRef.current) {
+          redBoxNumberRef.current.textContent = `${val}%`;
+        }
+
+        if (aboutHeadlineRef.current && aboutSubRef.current) {
+          if (val >= switchAt) {
+            // Text changes at 43% (position stays the same)
+            aboutHeadlineRef.current.innerHTML =
+              `<span class="accent">63% of Women</span> in the<br/>U.S are in Midlife.`;
+            aboutSubRef.current.textContent = "";
+          } else {
+            aboutHeadlineRef.current.innerHTML =
+              `Perimenopause is a<br/>Public Health Crisis.<br/>The Data is clear.`;
+            aboutSubRef.current.textContent = "";
+          }
+        }
+
+        const size = computeBoxSize(p);
+        if (redBoxRef.current) {
+          redBoxRef.current.style.width = `${size}px`;
+          redBoxRef.current.style.height = `${size}px`;
+        }
+      };
+
+      // init
+      updateUI(0);
+
+      gsap.to(state, {
+        p: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: triggerEl,
+          start: "top top",
+          end: `+=${PIN_SCROLL}`,
+          scrub: true,
+          pin: true,
+          anticipatePin: 1,
+
+          // continuous snap inside About
+          snap: {
+            snapTo: [
+              0,
+              (switchAt - minPct) / (maxPct - minPct), // progress at 43%
+              1,
+            ],
+            duration: 0.45,
+            delay: 0.02,
+            ease: "power2.inOut",
+          },
+
+          onEnter: () => onEnterAbout?.(),
+          onEnterBack: () => onEnterAbout?.(),
+          onLeave: () => onLeaveAbout?.(),
+          onLeaveBack: () => onLeaveAbout?.(),
+
+          onUpdate: () => updateUI(state.p),
+        },
+        onUpdate: () => updateUI(state.p),
+      });
+
+      // keep responsive on resize
+      const onResize = () => updateUI(state.p);
+      window.addEventListener("resize", onResize);
+      return () => window.removeEventListener("resize", onResize);
+    }, triggerEl);
+
+    return () => ctx.revert();
+  }, [ref, onEnterAbout, onLeaveAbout]);
 
   return (
-    <section className="about-page" ref={ref}>
-      <h2 className="about-title">Choose your path</h2>
+    <section ref={ref} className="section aboutSection" id="about">
+      <div className="aboutStage">
+        <div className="leftDots" aria-hidden="true">
+          <span className="leftDot" />
+          <span className="leftDot isOn" />
+          <span className="leftDot" />
+        </div>
 
-      <div className={`triangle-wrapper ${visible ? "zoom" : ""}`}>
+        <div className="aboutCopy">
+          <h2 ref={aboutHeadlineRef} className="aboutHeadline">
+            Perimenopause is a
+            <br />
+            Public Health Crisis.
+            <br />
+            The Data is clear.
+          </h2>
+          <div ref={aboutSubRef} className="aboutSub" />
+        </div>
 
-        <svg viewBox="0 0 400 600" className="triangle">
-
-          {/* Left top */}
-          <polygon
-            className="tri symptom"
-            points="0,0 200,250 200,0"
-            onClick={() => navigate("/symptomgalaxy")}
-          />
-
-          {/* Right top */}
-          <polygon
-            className="tri diy"
-            points="200,0 400,0 200,250"
-            onClick={() => navigate("/diydata")}
-          />
-
-          {/* Left bottom */}
-          <polygon
-            className="tri slice"
-            points="0,0 200,600 200,250"
-            onClick={() => navigate("/sliceoflife")}
-          />
-
-          {/* Right bottom */}
-          <polygon
-            className="tri approaches"
-            points="200,250 400,0 200,600"
-            onClick={() => navigate("/approaches")}
-          />
-
-          {/* Labels */}
-
-          <text x="30" y="60" className="label">Symptom Galaxy</text>
-          <text x="260" y="60" className="label">DIY Data</text>
-          <text x="60" y="360" className="label">Slice of Life</text>
-          <text x="250" y="360" className="label">Approaches</text>
-
-        </svg>
+        <div ref={redBoxRef} className="redBox" aria-hidden="true">
+          <div ref={redBoxNumberRef} className="redBoxNumber">
+            2%
+          </div>
+        </div>
       </div>
     </section>
   );
-}
+});
+
+export default About;

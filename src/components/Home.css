@@ -1,61 +1,201 @@
-.landing {
-  width: 100vw;
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-/* EACH FULL PAGE */
+/* ---------------- TOP NAV ---------------- */
+.topNav {
+  position: absolute;
+  top: 28px;
+  right: 36px;
+}
 
-.hero,
-.about-section {
-  width: 100vw;
-  height: 100vh;
+.topNavSvg {
+  width: 360px;
+  height: 70px;
+}
 
+.topNavLine {
+  stroke: var(--line);
+  stroke-width: 4;
+}
+
+.topNavDot {
+  fill: #adaaaa;
+  cursor: pointer;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+  transition: transform 0.25s ease, fill 0.25s ease;
+}
+
+.topNavDot:hover {
+  transform: scale(1.15);
+}
+
+.topNavDot.isActive {
+  fill: var(--red);
+  animation: breathe 1.8s ease-in-out infinite;
+}
+
+.topNavLabel {
+  font-size: 16px;
+  fill: #676666;
+  cursor: pointer;
+}
+
+.topNavLabel.isActive {
+  fill: var(--red);
+  font-weight: 700;
+}
+
+/* ---------------- MAIN WRAPPER ---------------- */
+.frame {
+  position: relative;
+  width: min(1360px,90vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---------------- HERO CARD (ONLY BOX) ---------------- */
+.card {
+  width: 100%;
+  min-height: 540px; /* taller card */
+  background: var(--card);
+  border-radius: 18px;
+  padding: 64px 72px;
+  text-align: center;
+  position: relative;   /* 👈 IMPORTANT */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.75),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.05),
+    0 18px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------------- TEXT ---------------- */
+.title {
+  margin: 0;
+  font-size: clamp(128px, 5.6vw, 64px);
+  color: var(--red);
+  font-weight: 800;
+}
+
+.subtitle {
+  margin-top: 28px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: clamp(42px, 2vw, 18px);
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.subtitleLine {
+  display: block;
+}
+
+/* ---------------- LEFT VERTICAL DOTS ---------------- */
+.sideDots {
+  position: absolute;
+  left: -24px;
+  top: 70%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sideDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  background: #cfcfcf;
+}
+
+.sideDot.isOn {
+  background: var(--red);
+}
+
+/* ---------------- SCROLL BUTTON (OUTSIDE CARD) ---------------- */
+.scrollIcon {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 44px;
+  height: 44px;
+
+  background: transparent; /* IMPORTANT */
+  box-shadow: none;        /* IMPORTANT */
+  border: none;
+
+  cursor: pointer;
+  opacity: 0.85;
 
   display: flex;
   align-items: center;
   justify-content: center;
-
-  position: relative;
+}
+.scrollButton:hover {
+  transform: translateY(-1px);
 }
 
-/* HERO */
-
-.hero {
-  background: radial-gradient(circle at top, #111, #000);
-  flex-direction: column;
-  text-align: center;
-  color: #ddd;
+.scrollButton:active {
+  transform: translateY(1px);
 }
 
-/* TITLE */
-
-.hero h1 {
-  font-size: 6rem;
-  margin: 0;
-}
-
-.hero p {
-  font-size: 2rem;
-  opacity: 0.7;
-}
-
-/* SCROLL ARROW */
-
-.scroll-arrow {
+/* arrow */
+.chev {
+  width: 32px;
+  height: 32px;
+  border-right: 5px solid #777;
+  border-bottom: 5px solid #777;
+  transform: rotate(45deg);
   position: absolute;
-  bottom: 30px;
-  font-size: 2rem;
-  cursor: pointer;
-  opacity: 0.5;
-  animation: bounce 2s infinite;
 }
 
-@keyframes bounce {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(10px); }
+.chev1 {
+  top: 7px;
 }
 
-/* ABOUT */
+.chev2 {
+  top: 23px;
+}
 
-.about-section {
-  background: black;
+/* ---------------- SCROLL TEXT ---------------- */
+.bottomHint {
+  margin-top: 20px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 14px;
+  color: #777;
+}
+
+/* ---------------- ANIMATION ---------------- */
+@keyframes breathe {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 640px) {
+  .card {
+    padding: 48px 32px;
+    min-height: 280px;
+  }
+
+  .sideDots {
+    display: none;
+  }
 }

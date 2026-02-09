@@ -41,12 +41,12 @@ export default function StatsSection() {
       0
     );
 
-    // First text fades OUT between 45–58
+    // First text fades out between 45–58%
     tl.to(textOne.current, {
       opacity: 0
     }, 0.55);
 
-    // Second text fades IN at 58+
+    // Second text fades in at 58%
     tl.fromTo(textTwo.current,
       { opacity: 0 },
       { opacity: 1 },
@@ -63,7 +63,7 @@ export default function StatsSection() {
       <div className="stats-text">
 
         <div ref={textOne} className="text-layer">
-          Perimenopause is a <br/> Public Health Crisis.<br/>
+          Perimenopause is a Public Health Crisis.<br/>
           The Data is Clear.
         </div>
 
