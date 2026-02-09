@@ -6,7 +6,7 @@
   position: relative;
 }
 
-/* ---------------- TOP NAV ---------------- */
+/* top navigation */
 .topNav {
   position: absolute;
   top: 28px;
@@ -50,7 +50,7 @@
   font-weight: 700;
 }
 
-/* ---------------- MAIN WRAPPER ---------------- */
+/* main wrapper */
 .frame {
   position: relative;
   width: min(1360px,90vw);
@@ -59,15 +59,15 @@
   align-items: center;
 }
 
-/* ---------------- HERO CARD (ONLY BOX) ---------------- */
+/* box */
 .card {
   width: 100%;
-  min-height: 540px; /* taller card */
+  min-height: 520px; /* taller card */
   background: var(--card);
   border-radius: 18px;
   padding: 64px 72px;
   text-align: center;
-  position: relative;   /* 👈 IMPORTANT */
+  position: relative;   
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -78,7 +78,7 @@
     0 18px 32px rgba(0, 0, 0, 0.12);
 }
 
-/* ---------------- TEXT ---------------- */
+/* text */
 .title {
   margin: 0;
   font-size: clamp(128px, 5.6vw, 64px);
@@ -98,7 +98,7 @@
   display: block;
 }
 
-/* ---------------- LEFT VERTICAL DOTS ---------------- */
+/* left vertical dots */
 .sideDots {
   position: absolute;
   left: -24px;
@@ -120,7 +120,7 @@
   background: var(--red);
 }
 
-/* ---------------- SCROLL BUTTON (OUTSIDE CARD) ---------------- */
+/* scroll icon */
 .scrollIcon {
   position: absolute;
   bottom: 34px;
@@ -130,8 +130,8 @@
   width: 44px;
   height: 44px;
 
-  background: transparent; /* IMPORTANT */
-  box-shadow: none;        /* IMPORTANT */
+  background: transparent; 
+  box-shadow: none;        /
   border: none;
 
   cursor: pointer;
@@ -167,15 +167,15 @@
   top: 23px;
 }
 
-/* ---------------- SCROLL TEXT ---------------- */
+/* scroll to explore text*/
 .bottomHint {
   margin-top: 20px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-family: ui-monospace, monospace;
   font-size: 14px;
-  color: #777;
+  color: #676666;
 }
 
-/* ---------------- ANIMATION ---------------- */
+/* animation */
 @keyframes breathe {
   0% {
     transform: scale(1);
