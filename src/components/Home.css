@@ -62,7 +62,7 @@
 /* box */
 .card {
   width: 100%;
-  min-height: 520px; /* taller card */
+  min-height: 490px; /* taller card */
   background: var(--card);
   border-radius: 18px;
   padding: 64px 72px;

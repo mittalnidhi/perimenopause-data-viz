@@ -52,7 +52,7 @@
 
 .about__box--back{
   z-index: 1;
-  background: #c82020;
+  background: #D30909;
 }
 
 .about__box--front{
@@ -79,4 +79,26 @@
 @media (max-width:720px){
   .about__copy{ left: 28px; top: 42px; max-width: 78vw; }
   .about__leftDots{ left: 14px; }
+}
+
+/*Third box */
+
+.about__box--third{
+  z-index: 0;
+  background: #FF0707; 
+}
+
+.about__box--back{
+  z-index: 1;
+  background: #be1919;
+}
+
+.about__box--front{
+  z-index: 2;
+  background: #881515;
+}
+
+/* $B label */
+.about__num--b{
+  font-size: clamp(22px, 3vw, 44px);
 }

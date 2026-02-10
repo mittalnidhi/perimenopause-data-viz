@@ -1,114 +1,88 @@
 // Home.jsx
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "./home.css";
 import About from "./About";
 
+const SECTIONS = [
+  { id: "home", label: "Home", cx: 30, cy: 25, textY: 14 },
+  { id: "about", label: "About", cx: 125, cy: 45, textY: 66 },
+  { id: "path", label: "Path", cx: 230, cy: 35, textY: 56 },
+];
+
+const content = {
+  title: "The Invisible Data",
+  subtitle: "Mapping the Perimenopausal Data Gap\nin Women's Health",
+};
+
+//active basically stores which section is currently dominant on screen- used to highlight nav dots and labels
 export default function Home() {
   const [active, setActive] = useState("home");
 
-  const content = useMemo(() => {
-    return {
-      title: "The Invisible Data",
-      subtitle: "Mapping the Perimenopausal Data Gap\nin Women’s Health",
-    };
+  // finds an element by id
+  //useCallback ensures the function reference stays stable
+
+  const scrollToId = useCallback((id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
 
-  const scrollToId = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
+  // converts section IDs to DOM elements
+  // filter Boolean will remove any null value
   useEffect(() => {
-    const homeEl = document.getElementById("home");
-    const aboutEl = document.getElementById("about");
-    const pathEl = document.getElementById("path");
+    const els = SECTIONS.map((s) => document.getElementById(s.id)).filter(Boolean);
+    if (!els.length) return;  // if nothing exists, it will stop
 
-    const targets = [homeEl, aboutEl, pathEl].filter(Boolean);
-    if (!targets.length) return;
+    // this will create a browser observer which will watch when elemnts enter/leave the viewport
 
     const io = new IntersectionObserver(
       (entries) => {
         const mostVisible = entries
           .filter((e) => e.isIntersecting)
-          .sort(
-            (a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0)
-          )[0];
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-        if (!mostVisible) return;
-
-        if (mostVisible.target.id === "home") setActive("home");
-        if (mostVisible.target.id === "about") setActive("about");
-        if (mostVisible.target.id === "path") setActive("path");
+        if (mostVisible?.target?.id) setActive(mostVisible.target.id);
       },
-      { threshold: [0.55, 0.65, 0.75] }
+      { threshold: [0.55, 0.65, 0.75] } //observer will fire when 55%, 65%, or 75% of a section is visible. will prevent rapid toggling near edges.
     );
 
-    targets.forEach((t) => io.observe(t));
+    els.forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, []);
 
   return (
     <>
-      {/* HOME */}
+      {/* home */}
       <div className="page" id="home">
-        {/* Top-right mini path nav */}
+        {/* Top-right mini path nav */} {/*viewbox has drawing coordinates for nav */}
         <div className="topNav" aria-label="Home / About / Path navigation">
-          <svg className="topNavSvg" viewBox="0 0 260 70" role="img">
+          <svg className="topNavSvg" viewBox="0 0 260 70" role="img"> 
             <path d="M30 25 L125 45 L230 35" className="topNavLine" fill="none" />
+
+            {/* label under/above the dot, its clickable, uses same active logic as the dot */}
+
             <g className="topNavNodeGroup">
-              {/* HOME */}
-              <circle
-                className={`topNavDot ${active === "home" ? "isActive" : ""}`}
-                cx="30"
-                cy="25"
-                r="5"
-                onClick={() => scrollToId("home")}
-              />
-              <text
-                className={`topNavLabel ${active === "home" ? "isActive" : ""}`}
-                x="30"
-                y="14"
-                textAnchor="middle"
-                onClick={() => scrollToId("home")}
-              >
-                Home
-              </text>
-
-              {/* about */}
-              <circle
-                className={`topNavDot ${active === "about" ? "isActive" : ""}`}
-                cx="125"
-                cy="45"
-                r="5"
-                onClick={() => scrollToId("about")}
-              />
-              <text
-                className={`topNavLabel ${active === "about" ? "isActive" : ""}`}
-                x="125"
-                y="66"
-                textAnchor="middle"
-                onClick={() => scrollToId("about")}
-              >
-                About
-              </text>
-
-              {/* path */}
-              <circle
-                className={`topNavDot ${active === "path" ? "isActive" : ""}`}
-                cx="230"
-                cy="35"
-                r="5"
-                onClick={() => scrollToId("path")}
-              />
-              <text
-                className={`topNavLabel ${active === "path" ? "isActive" : ""}`}
-                x="230"
-                y="56"
-                textAnchor="middle"
-                onClick={() => scrollToId("path")}
-              >
-                Path
-              </text>
+              {SECTIONS.map((s) => {
+                const isActive = active === s.id;
+                return (
+                  <g key={s.id}>
+                    <circle
+                      className={`topNavDot ${isActive ? "isActive" : ""}`}
+                      cx={s.cx}
+                      cy={s.cy}
+                      r="5"
+                      onClick={() => scrollToId(s.id)}
+                    />
+                    <text
+                      className={`topNavLabel ${isActive ? "isActive" : ""}`}
+                      x={s.cx}
+                      y={s.textY}
+                      textAnchor="middle"
+                      onClick={() => scrollToId(s.id)}
+                    >
+                      {s.label}
+                    </text>
+                  </g>
+                );
+              })}
             </g>
           </svg>
         </div>
@@ -122,7 +96,7 @@ export default function Home() {
             <span className="sideDot" />
           </div>
 
-          {/* Main hero card */}
+          {/* Main hero card, role makes it accessible*/}
           <div className="card" role="region" aria-label="Hero content">
             <h1 className="title">{content.title}</h1>
 
