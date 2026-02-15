@@ -1,0 +1,554 @@
+{
+    "symptoms": {
+        "name": "Symptoms",
+        "children": [
+            {
+                "name": "Menstrual",
+                "value": 12000,
+                "color": "#960F7E",
+                "children": [
+                    {
+                        "name": "Fluctuation in Cycles",
+                        "value": 11508,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": "Menstrual cycles become irregular-shorter, longer, or skipped, as hormone levels fluctuate during this phase."
+                    },
+                    {
+                        "name": "PMS Worsening",
+                        "value": 288,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": "PMS Worsening during Menstrual Cycle"
+                    },
+                    {
+                        "name": "Cramps",
+                        "value": 200,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": "Cramps during Menstrual Cycle"
+                    }
+                ]
+            },
+            {
+                "name": "Psychological & Emotional",
+                "value": 10500,
+                "color": "#7C7C7C",
+                "children": [
+                    {
+                        "name": "Stress",
+                        "value": 5000,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Anxiety",
+                        "value": 3206,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": "Fluctuation in estrogen levels can lead to Anxiety"
+                    },
+                    {
+                        "name": "Mood Swing",
+                        "value": 1425,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": "Fluctuation in testosterone and estrogen can lead to Mood Swings"
+                    },
+                    {
+                        "name": "ADHD",
+                        "value": 1170,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Panic",
+                        "value": 993,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Anger",
+                        "value": 987,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Depression",
+                        "value": 832,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": "Depressive symptoms varied by ethnicity in SWAN study, with sharp increases over time among Japanese and Hispanic women, and associations with higher testosterone levels"
+                    },
+                    {
+                        "name": "Tearfulness",
+                        "value": 340,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Irritability",
+                        "value": 229,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Emotional Instability",
+                        "value": 213,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Sudden Sadness",
+                        "value": 48,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Social Withdrawal",
+                        "value": 27,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Loss of Motivation",
+                        "value": 18,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Low Self Esteem",
+                        "value": 3,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Mental Fatigue",
+                        "value": 3,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    }
+                ]
+            },
+            {
+                "name": "Physical",
+                "value": 7297,
+                "color": "#334CC9",
+                "children": [
+                    {
+                        "name": "Weight Gain",
+                        "value": 1748,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": "Unexplained weight gain is one of the early indicators of Perimenopause."
+                    },
+                    {
+                        "name": "Vision Changes",
+                        "value": 801,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Body Odour",
+                        "value": 779,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Bone Health",
+                        "value": 741,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Breast Tenderness / Pain",
+                        "value": 591,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": "Breast Tenderness are often caused by fluctuations in Progesterone levels. It is one of the early indicators of this stage."
+                    },
+                    {
+                        "name": "Body Aches",
+                        "value": 477,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": "Body aches like Muscle & joint pain"
+                    },
+                    {
+                        "name": "Digestive Problems",
+                        "value": 454,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Bloating",
+                        "value": 290,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Blood Pressure Fluctuation",
+                        "value": 263,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Balancing Issues",
+                        "value": 223,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Frozen Shoulder",
+                        "value": 199,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Pelvic Discomfort",
+                        "value": 138,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Obsessive Compulsive Disorder (OCD)",
+                        "value": 136,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Tinnitus",
+                        "value": 124,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": "Tinnitus or Ringing Ear are one of the least discussed symptoms"
+                    },
+                    {
+                        "name": "Back Pain",
+                        "value": 188,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Dental Problems",
+                        "value": 121,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Heat Burn / Acid Reflux",
+                        "value": 91,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Itchy Skin/Scalp",
+                        "value": 84,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Electric Shock Experience / Tremors",
+                        "value": 76,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Tingling",
+                        "value": 75,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Irritable Bowel Syndrome (IBS)",
+                        "value": 65,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Diabetes",
+                        "value": 63,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Insulin Resistance",
+                        "value": 52,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Crawling on Skin",
+                        "value": 49,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Swelling",
+                        "value": 44,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Dry Mouth",
+                        "value": 25,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Food Intolerance",
+                        "value": 20,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Disorientation",
+                        "value": 8,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    }
+                ]
+            },
+            {
+                "name": "Sleep / Fatigue",
+                "value": 5358,
+                "color": "#1A7C6E",
+                "children": [
+                    {
+                        "name": "Insomnia",
+                        "value": 4083,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": "Sleep disruption affects ~38% of women and often co-occurs with hot flashes. Rates vary by race/ethnicity ~ lowest (28%) observed in Japanese and highest (40%) in Caucasian women. Symptoms are also associated with estrogen volatility and low progesterone."
+                    },
+                    {
+                        "name": "Fatigue",
+                        "value": 1230,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Vivid Dreams",
+                        "value": 42,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    }
+                ]
+            },
+            {
+                "name": "Cognitive",
+                "value": 4262,
+                "color": "#C57970",
+                "children": [
+                    {
+                        "name": "Brain Fog",
+                        "value": 3862,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Migraine",
+                        "value": 1812,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Memory Lapse",
+                        "value": 1024,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Dizzy / Vertigo",
+                        "value": 568,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Decreased Attention",
+                        "value": 12,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    }
+                ]
+            },
+            {
+                "name": "Vasomotor",
+                "value": 4212,
+                "color": "#D41F28",
+                "children": [
+                    {
+                        "name": "Hot Flashes & Night Sweat",
+                        "value": 6812,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": "Hot flashes affect up to 70% of women, vary by race/ethnicity ~ Rates are high among African-American & Native American women ; Chinese & Japanese women have lower rates & a shorter overall duratiion of hot flashes. Elevated FSH and fluctuating estrogen are predictive of hot flashes."
+                    },
+                    {
+                        "name": "Heart Palpitations",
+                        "value": 931,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": "Fluctuation in Estrogen levels could lead to heart palpitations or irregular heart beat."
+                    },
+                    {
+                        "name": "Chills",
+                        "value": 400,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Temperature Sensitivity",
+                        "value": 118,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    }
+                ]
+            },
+            {
+                "name": "Urological & Sexual",
+                "value": 4103,
+                "color": "#A765A8",
+                "children": [
+                    {
+                        "name": "Low/High Libido",
+                        "value": 1762,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": "Fluctuations in testosterone can lead to Low/High Libido"
+                    },
+                    {
+                        "name": "Frequent Urination",
+                        "value": 414,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Urinary Tract Infection",
+                        "value": 198,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Vaginal Dryness & Irritation",
+                        "value": 92,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": "Vaginal symptoms are common during perimenopause and are associated with declining estrogen levels. 60% of Central American women reported vaginal dryness compared with 21% of non-Hispanic Caucasian women"
+                    },
+                    {
+                        "name": "Painful Intercourse",
+                        "value": 80,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": "Decreased Estrogen levels often lead to pain or discomfort during intercourse"
+                    }
+                ]
+            },
+            {
+                "name": "Dermatological & Sensory",
+                "value": 2863,
+                "color": "#1EA2C1",
+                "children": [
+                    {
+                        "name": "Hair Thinning or Loss",
+                        "value": 1163,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Skin Issues",
+                        "value": 880,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Allergy",
+                        "value": 260,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Dry & Itchy Ear",
+                        "value": 157,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Dry Skin",
+                        "value": 73,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    },
+                    {
+                        "name": "Brittle Nail",
+                        "value": 71,
+                        "x": 0,
+                        "y": 0,
+                        "hovertext": ""
+                    }
+                ]
+            }
+        ]
+    },
+    "age": [
+        {"range": "26-30", "count": 80},
+        {"range": "31-35", "count": 250},
+        {"range": "36-40", "count": 563},
+        {"range": "41-45", "count": 455},
+        {"range": "46-50", "count": 250},
+        {"range": "51-55", "count": 100}
+    ]
+}

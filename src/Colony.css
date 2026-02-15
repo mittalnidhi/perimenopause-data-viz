@@ -1,0 +1,7 @@
+.gray-panel {
+    background-color: #C2C5D0;
+    mix-blend-mode: multiply;
+    border: 2px solid #45144B;
+    border-radius: 48px;
+    box-sizing: border-box;
+}
